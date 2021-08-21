@@ -1,0 +1,60 @@
+body {
+  background-color: rgb(34, 30, 30);
+  font-family: sans-serif;
+  color: rgb(236, 234, 230);
+}
+
+.headContainer{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.headItems{
+  margin: 10px;
+}
+
+.vaults {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.vault {
+  background: linear-gradient(#666, #333);
+  margin: 10px;
+  text-align: center; 
+  border-radius: 5px;   
+  padding: 5px; 
+}
+
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.boton {
+  right: 30px;
+  border-radius: 5px; 
+  font-family: sans-serif;   
+  font-size: 15px;
+  font-weight:bold;
+  padding: 5px;  
+  background-color: rgb(210, 210, 226);
+  cursor: pointer;
+}
+
+@media screen and (min-width: 420px) {
+  .headContainer{
+      flex-direction: row;
+  } 
+  .vaults{
+    flex-direction: row;
+}  
+}
+
+
