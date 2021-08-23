@@ -48,7 +48,7 @@ window.onload = async () => {
 
   } else {
     console.error('Web3 provider not detected')
-    alert("Metamask no detectado, use un navegador dapp para ver más información")
+    //alert("Metamask no detectado, use un navegador dapp para ver más información")
   }
 }
 
@@ -89,18 +89,17 @@ const wbusdStats = async () => {
   balanceFtm = Number(fantom.utils.fromWei(balanceFtm)).toFixed(1);
   balanceFtm = new Intl.NumberFormat().format(balanceFtm);
 
-  document.getElementById("wbusdPoly").textContent = balancePoly + " / " + balanceFtm;
-  //document.getElementById("wbusdFtm").textContent = balanceFtm;
+  document.getElementById("wbusdPoly").textContent = `$ ${balancePoly}  /  $ ${balanceFtm}`;
 
   const busdContract = await new bsc.eth.Contract(window.tokenAbi, "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56")
   const collContract = "0x32e8E9095E05B4203Fe9B23284144f89766e634A"
 
-  let collateral = await busdContract.methods.balanceOf(collContract).call()
+  let collateral = await busdContract.methods.balanceOf(collContract).call();
   collateral = Number(bsc.utils.fromWei(collateral)).toFixed(1);
   collateral = new Intl.NumberFormat().format(collateral);
   let porcent = parseFloat(collateral) / ((parseFloat(balancePoly) + parseFloat(balanceFtm))) * 100;
-  porcent = porcent.toFixed(2)
-  document.getElementById("ColBusd").textContent = collateral + " " + porcent + " %";
+  porcent = porcent.toFixed(2);
+  document.getElementById("ColBusd").textContent = `$ ${collateral} - ${porcent}  %`;
 
 
 
@@ -126,8 +125,6 @@ const wbusdStats = async () => {
   document.getElementById("BSC").style.display = "inline-block";
 
 
-
-
   const zeroStratContractApe = await new bsc.eth.Contract(window.abi1, "0x030d358E5d126A46256748829Ab0A488b45B31c8");
   let lastHarvestApe = await zeroStratContractApe.methods.lastHarvestedTime().call();
   let horaHarvestApe = lastHarvestApe * 1000;
@@ -135,16 +132,13 @@ const wbusdStats = async () => {
 
   let tiempoApe = hora - lastHarvestApe * 1000
   tiempoApe = (((tiempoApe / 3600000)).toFixed(1))
-
-
-
-
 }
 
+wbusdStats()
+let refrescar = setInterval(wbusdStats, 30000);
 
 
-
-
+/*
 
 const onClickConnect = async () => {
   try {    
@@ -156,12 +150,9 @@ const onClickConnect = async () => {
 
 document.getElementById("button1").onclick = onClickConnect
 
-wbusdStats()
-let refrescar = setInterval(wbusdStats, 30000);
 
 
 
-/*
 
 const mint = async () => {
 

@@ -12,10 +12,7 @@
 </head>
 
 <body>
-	<div class="headContainer">
-
-		<button class="boton" id="button1">Conectar</button>
-
+	<div class="headContainer">	
 		<h4 class="headItems">Cuenta conectada </h4>
 		<p class="headItems" id="add">No conectada</p>
 		<h4 class="headItems">Red</h4>
@@ -26,7 +23,13 @@
 	</div>
 
 	<div class="vaults">
-		
+		<div class="vault" style="display: none;" id="BSC">
+			<h4>Pending BUSD/UST (BSC)</h4>
+			<p id="pendRew"></p>
+			<h4>Last Compound</h4>
+			<p id="lastHarvest"></p>
+			<p id="horas"></p>
+		</div>
 		<div class="vault">
 			<h4>WBUSD en Polygon / Fantom</h4>
 			<p id="wbusdPoly"></p>
@@ -34,9 +37,6 @@
 			<p id="ColBusd"></p>
 		</div>
 	</div>
-
-
-
 
 	<script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
 	<script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
