@@ -59,12 +59,10 @@ window.onload = async () => {
 const conectado = async () => {
 
   let tuCuenta = await web3.eth.getAccounts();
-  let cuenta = String(tuCuenta).substring(1, 5);
-  document.getElementById("add").textContent = cuenta + "...";
+  document.getElementById("add").textContent = `${String(tuCuenta).substring(1, 5)}...${String(tuCuenta).substring(38)} `;
   let tuBalance = await web3.eth.getBalance(tuCuenta[0]);
   tuBalance = Number(web3.utils.fromWei(tuBalance)).toFixed(3);
   document.getElementById("bal").textContent = tuBalance;
-
 
   if (chainId == 'Binance Smart Chain') {
 
@@ -141,7 +139,7 @@ let refrescar = setInterval(wbusdStats, 30000);
 /*
 
 const onClickConnect = async () => {
-  try {    
+  try {
     await ethereum.request({ method: 'eth_requestAccounts' });
   } catch (error) {
     console.error(error);
