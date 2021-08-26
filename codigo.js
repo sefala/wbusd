@@ -132,6 +132,8 @@ const wbusdStats = async () => {
   tiempoApe = (((tiempoApe / 3600000)).toFixed(1))
 }
 
+wbusdStats();
+
 let refrescar = setInterval(wbusdStats, 30000);
 
 
